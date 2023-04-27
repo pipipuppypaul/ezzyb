@@ -4,15 +4,16 @@
         <form @submit.prevent="onSubmit">
             <div class="form-group">
                 <label for="tp">Flow Type:</label>
-                <input type="text" id="tp" v-model="fType" required>
+                <input class="input" type="text" id="tp" v-model="fType" required>
             </div>
             <div class="form-group">
                 <label for="act">Flow Action:</label>
-                <input type="text" id="act" v-model="fAction" required>
+                <input class="input" type="text" id="act" v-model="fAction" required>
             </div>
             <div class="form-actions">
-                <button type="submit">Submit</button>
-                <button type="button" @click="goBack">Back</button>
+                <button class="button" type="submit">Submit</button>
+                <button class="button" type="button" @click="goBack"> Back </button>
+                <button class="cancel" @click="cancel">Cancel</button>
             </div>
         </form>
     </div>
@@ -42,6 +43,9 @@ export default {
         },
         goBack() {
             this.$emit('prev');
+        },
+        cancel() {
+            this.$emit('cancel');
         }
     }
 }

@@ -4,10 +4,11 @@
     <form @submit.prevent="onSubmit">
       <div class="form-group">
         <label for="fid">FlowID:</label>
-        <input type="text" id="fid" v-model="fID" required>
+        <input class="input" type="text" id="fid" v-model="fID" required>
       </div>
       <div class="form-actions">
-        <button type="submit">Next</button>
+        <button class="button" type="submit">Next</button>
+        <button class="cancel" @click="cancel">Cancel</button>
       </div>
     </form>
   </div>
@@ -26,7 +27,10 @@ export default {
         flowID: this.fID
       };
       this.$emit('next', formData);
-    }
+    },
+    cancel() {
+            this.$emit('cancel');
+        }
   }
 }
 </script>

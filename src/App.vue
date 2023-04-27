@@ -4,10 +4,11 @@
 
     <div class="popup-container" v-if="show">
         <div class="popup" v-if="showPopup">
-            <FirstPage v-if="showFirstPage" @next="onFirstPageNext"></FirstPage>
+            <FirstPage v-if="showFirstPage" @next="onFirstPageNext" @cancel="closePopup"></FirstPage>
             <SecondPage v-if="showSecondPage" :data="formData"
-              @submit="onSecondPageSubmit" @prev="prevPage"></SecondPage>
+              @submit="onSecondPageSubmit" @prev="prevPage" @cancel="closePopup"></SecondPage>
         </div>
+        
     </div>
 
     </div>
@@ -39,13 +40,28 @@
   }
   
   .button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-  }
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  background-color: #3f51b5;
+  color: #fff;
+  cursor: pointer;
+}
+.cancel {
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  background-color: #3f51b5;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+}
   
   .form-group {
     margin-bottom: 20px;
@@ -71,6 +87,14 @@
     margin-top: 20px;
   }
   
+.button:hover {
+  background-color: #283593;
+}
+
+button:focus {
+  outline: none;
+}
+
   @media (max-width: 500px) {
     .popup {
       max-width: 100%;
