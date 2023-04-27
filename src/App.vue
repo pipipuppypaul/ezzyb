@@ -112,6 +112,8 @@ button:focus {
   
   export default {
     components: {
+      // TODO: if you have more pages in the future,
+      // you should use page numbers instead of page names
       FirstPage,
       SecondPage
     },
